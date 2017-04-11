@@ -17,10 +17,17 @@ var SongQueue = Backbone.Collection.extend({
       }
     });
 
+    this.on('dequeue', function() {
+      this.pop();
+    });
+
+    this.on('play', function() {
+      this.playFirst();
+    });
   },
 
   playFirst: function() {
-    
+    SongModel.prototype.play()
   }
 
 });
